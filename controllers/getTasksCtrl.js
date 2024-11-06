@@ -2,6 +2,7 @@ const database = require("../database/database"); // database 모듈 임포트
 
 exports.getTasks = async (request, response) => {
   const userId = request.params.userId; // 요청 URL에서 userId 파라미터 추출
+
   try {
     const result = await database.pool.query(
       "SELECT * FROM tasks WHERE userId =$1 ORDER BY created_at DESC",
